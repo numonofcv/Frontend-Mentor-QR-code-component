@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* CSS o'zgaruvchilari (Custom Properties) */
+:root {
+    --primary-font: 'Poppins', sans-serif;
+    --bg-color: #f0f0f0;
+    --card-bg: #fff;
+    --dark-text: #333;
+    --light-text: #666;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --card-border-radius: 0.9375rem; /* 15px / 16 = 0.9375rem */
+    --spacing-small: 0.625rem; /* 10px / 16 = 0.625rem */
+    --spacing-medium: 1.25rem; /* 20px / 16 = 1.25rem */
+    --spacing-large: 1.875rem; /* 30px / 16 = 1.875rem */
+}
+
 /* Umumiy stil sozlamalari */
 * {
     margin: 0;
@@ -9,21 +24,21 @@
 
 /* Body stilizatsiyasi: Poppins shrifti, ochiq kulrang fon, markazlashtirilgan kontent */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f0;
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh; /* Sahifani to'liq balandlikka cho'zadi */
+    min-height: 100vh; /* Sahifani to'liq balandlikka cho'zadi */
 }
 
-/* Sarlavha (h1) stili */
+/* Sarlavha (h1) stili (Mobil-first) */
 h1.title {
-    font-size: 24px;
-    color: #333;
+    font-size: 1.25rem; /* 20px / 16 = 1.25rem */
+    color: var(--dark-text);
     text-align: center;
-    margin-bottom: 20px;
+    margin-block-end: var(--spacing-medium); /* margin-bottom o'rniga */
 }
 
 /* Asosiy kontent konteyneri stili */
@@ -34,26 +49,31 @@ h1.title {
     width: 100%;
 }
 
-/* Karta (card) komponenti stili */
+/* Karta (card) komponenti stili (Mobil-first) */
 .card {
-    max-width: 300px; /* Maksimal kenglik */
-    width: 100%; /* Moslashuvchan kenglik */
-    height: auto;
-    background-color: #fff;
-    border-radius: 15px; /* Dumaloq burchaklar */
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1); /* Yengil soya */
+    width: 90%; /* Kichik ekranlarda kengroq */
+    padding: var(--spacing-large); /* 30px / 16 = 1.875rem */
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 20px;
 }
 
 /* Karta ichidagi rasm stili */
 .card__image {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Kvadrat shakli */
-    object-fit: cover; /* Rasmni konteynerga moslaydi */
-    border-radius: 15px; /* Dumaloq burchaklar */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Yengil soya */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease; /* Hover effekti uchun silliq o'tish */
+}
+
+/* prefers-reduced-motion sozlamasiga ega foydalanuvchilar uchun animatsiyani kamaytirish */
+@media (prefers-reduced-motion: reduce) {
+    .card__image {
+        transition: none; /* Animatsiyani o'chiradi */
+    }
 }
 
 /* Karta ustiga sichqoncha olib kelganda rasm effekti */
@@ -64,34 +84,34 @@ h1.title {
 
 /* Karta kontentining stili */
 .card__content {
-    margin-top: 20px;
-    border-radius: 10px;
+    margin-block-start: var(--spacing-medium); /* margin-top o'rniga */
+    border-radius: var(--spacing-small); /* 10px / 16 = 0.625rem */
 }
 
-/* Karta sarlavhasi (h2) stili */
+/* Karta sarlavhasi (h2) stili (Mobil-first) */
 .card__title {
-    font-size: 18px;
+    font-size: 1rem; /* 16px / 16 = 1rem */
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.03125rem; /* 0.5px / 16 = 0.03125rem */
     line-height: 1.3;
-    color: #333;
-    margin: 0 0 10px;
+    color: var(--dark-text);
+    margin-block-end: var(--spacing-small); /* margin-bottom o'rniga */
 }
 
-/* Karta matni (p) stili */
+/* Karta matni (p) stili (Mobil-first) */
 .card__text {
-    font-size: 14px;
-    color: #666;
+    font-size: 0.75rem; /* 12px / 16 = 0.75rem */
+    color: var(--light-text);
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-block-end: var(--spacing-medium); /* margin-bottom o'rniga */
 }
 
 /* Futer stili */
 .footer {
-    margin-top: 20px;
+    margin-block-start: var(--spacing-medium); /* margin-top o'rniga */
     text-align: center;
-    font-size: 14px;
-    color: #666;
+    font-size: 0.75rem; /* 12px / 16 = 0.75rem */
+    color: var(--light-text);
 }
 
 /* Futer ichidagi attribution bo'limi stili */
@@ -100,48 +120,47 @@ h1.title {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    flex-wrap: wrap; /* Kichik ekranlarda qatorni o'raydi */
-    gap: 10px; /* Elementlar orasidagi bo'shliq */
+    flex-wrap: wrap;
+    gap: var(--spacing-small);
 }
 
 /* Futer havolalari uchun umumiy stil */
 .footer a {
-    color: #007bff; /* Moviy rang */
-    text-decoration: none; /* Standart bo'yicha tagiga chiziq yo'q */
+    color: var(--link-color);
+    text-decoration: none;
 }
 
 /* Foydalanish qulayligi uchun: Havolani rangga tayanmasdan farqlash */
-/* Bu klassga ega havolalar har doim tagiga chizilgan bo'ladi */
 .footer a.link--distinguishable {
     text-decoration: underline;
 }
 
 /* Futer havolalari ustiga sichqoncha olib kelganda stil */
 .footer a:hover {
-    color: #0056b3; /* To'qroq moviy rang */
-    text-decoration: underline; /* Sichqoncha ustiga olib kelganda tagiga chiziq qo'shadi */
+    color: var(--link-hover-color);
+    text-decoration: underline;
 }
 
-/* Mobil qurilmalar uchun moslashuvchanlik (600px dan kichik ekranlar) */
-@media (max-width: 600px) {
-    .card {
-        width: 90%; /* Kichik ekranlarda kengroq */
-        padding: 30px;
+/* Desktop va kattaroq ekranlar uchun stil (min-width bilan mobil-first yondashuv) */
+@media (min-width: 37.5em) { /* 600px / 16 = 37.5em */
+    h1.title {
+        font-size: 1.5rem; /* 24px / 16 = 1.5rem */
     }
 
-    h1.title {
-        font-size: 20px; /* Kichikroq shrift */
+    .card {
+        max-width: 18.75rem; /* 300px / 16 = 18.75rem */
+        padding: var(--spacing-medium); /* 20px / 16 = 1.25rem */
     }
 
     .card__title {
-        font-size: 16px; /* Kichikroq shrift */
+        font-size: 1.125rem; /* 18px / 16 = 1.125rem */
     }
 
     .card__text {
-        font-size: 12px; /* Kichikroq shrift */
+        font-size: 0.875rem; /* 14px / 16 = 0.875rem */
     }
 
     .footer {
-        font-size: 12px; /* Kichikroq shrift */
+        font-size: 0.875rem; /* 14px / 16 = 0.875rem */
     }
 }
