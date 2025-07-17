@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* CSS o'zgaruvchilari (Custom Properties) */
 :root {
     --primary-font: 'Poppins', sans-serif;
     --bg-color: #f0f0f0;
@@ -9,20 +8,20 @@
     --light-text: #666;
     --link-color: #007bff;
     --link-hover-color: #0056b3;
-    --card-border-radius: 0.9375rem; /* 15px / 16 = 0.9375rem */
-    --spacing-small: 0.625rem; /* 10px / 16 = 0.625rem */
-    --spacing-medium: 1.25rem; /* 20px / 16 = 1.25rem */
-    --spacing-large: 1.875rem; /* 30px / 16 = 1.875rem */
+    --card-border-radius: 0.9375rem;
+    --spacing-small: 0.625rem;
+    --spacing-medium: 1.25rem;
+    --spacing-large: 1.875rem;
+    --box-shadow-light: 0 0px 15px rgba(0, 0, 0, 0.1);
+    --box-shadow-card-image: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Umumiy stil sozlamalari */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body stilizatsiyasi: Poppins shrifti, ochiq kulrang fon, markazlashtirilgan kontent */
 body {
     font-family: var(--primary-font);
     background-color: var(--bg-color);
@@ -30,18 +29,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100vh; /* Sahifani to'liq balandlikka cho'zadi */
+    min-height: 100vh;
 }
 
-/* Sarlavha (h1) stili (Mobil-first) */
 h1.title {
-    font-size: 1.25rem; /* 20px / 16 = 1.25rem */
+    font-size: clamp(1.25rem, 4vw, 1.5rem);
     color: var(--dark-text);
     text-align: center;
-    margin-block-end: var(--spacing-medium); /* margin-bottom o'rniga */
+    margin-block-end: var(--spacing-medium);
 }
 
-/* Asosiy kontent konteyneri stili */
 .main-content {
     display: flex;
     justify-content: center;
@@ -49,72 +46,63 @@ h1.title {
     width: 100%;
 }
 
-/* Karta (card) komponenti stili (Mobil-first) */
 .card {
-    width: 90%; /* Kichik ekranlarda kengroq */
-    padding: var(--spacing-large); /* 30px / 16 = 1.875rem */
+    width: 90%;
+    padding: var(--spacing-large);
     background-color: var(--card-bg);
     border-radius: var(--card-border-radius);
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-light);
     text-align: center;
 }
 
-/* Karta ichidagi rasm stili */
 .card__image {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--card-border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease; /* Hover effekti uchun silliq o'tish */
+    box-shadow: var(--box-shadow-card-image);
+    transition: transform 0.3s ease;
 }
 
-/* prefers-reduced-motion sozlamasiga ega foydalanuvchilar uchun animatsiyani kamaytirish */
 @media (prefers-reduced-motion: reduce) {
     .card__image {
-        transition: none; /* Animatsiyani o'chiradi */
+        transition: none;
     }
 }
 
-/* Karta ustiga sichqoncha olib kelganda rasm effekti */
 .card:hover .card__image {
-    transform: scale(1.05); /* Rasmni kattalashtiradi */
-    cursor: pointer; /* Kursor turini o'zgartiradi */
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
-/* Karta kontentining stili */
 .card__content {
-    margin-block-start: var(--spacing-medium); /* margin-top o'rniga */
-    border-radius: var(--spacing-small); /* 10px / 16 = 0.625rem */
+    margin-block-start: var(--spacing-medium);
+    border-radius: var(--spacing-small);
 }
 
-/* Karta sarlavhasi (h2) stili (Mobil-first) */
 .card__title {
-    font-size: 1rem; /* 16px / 16 = 1rem */
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.03125rem; /* 0.5px / 16 = 0.03125rem */
+    letter-spacing: 0.03125rem;
     line-height: 1.3;
     color: var(--dark-text);
-    margin-block-end: var(--spacing-small); /* margin-bottom o'rniga */
+    margin-block-end: var(--spacing-small);
 }
 
-/* Karta matni (p) stili (Mobil-first) */
 .card__text {
-    font-size: 0.75rem; /* 12px / 16 = 0.75rem */
+    font-size: 0.75rem;
     color: var(--light-text);
     line-height: 1.5;
-    margin-block-end: var(--spacing-medium); /* margin-bottom o'rniga */
+    margin-block-end: var(--spacing-medium);
 }
 
-/* Futer stili */
 .footer {
-    margin-block-start: var(--spacing-medium); /* margin-top o'rniga */
+    margin-block-start: var(--spacing-medium);
     text-align: center;
-    font-size: 0.75rem; /* 12px / 16 = 0.75rem */
+    font-size: 0.75rem;
     color: var(--light-text);
 }
 
-/* Futer ichidagi attribution bo'limi stili */
 .footer .attribution {
     display: flex;
     justify-content: center;
@@ -124,43 +112,35 @@ h1.title {
     gap: var(--spacing-small);
 }
 
-/* Futer havolalari uchun umumiy stil */
 .footer a {
     color: var(--link-color);
     text-decoration: none;
 }
 
-/* Foydalanish qulayligi uchun: Havolani rangga tayanmasdan farqlash */
 .footer a.link--distinguishable {
     text-decoration: underline;
 }
 
-/* Futer havolalari ustiga sichqoncha olib kelganda stil */
 .footer a:hover {
     color: var(--link-hover-color);
     text-decoration: underline;
 }
 
-/* Desktop va kattaroq ekranlar uchun stil (min-width bilan mobil-first yondashuv) */
-@media (min-width: 37.5em) { /* 600px / 16 = 37.5em */
-    h1.title {
-        font-size: 1.5rem; /* 24px / 16 = 1.5rem */
-    }
-
+@media (min-width: 37.5em) {
     .card {
-        max-width: 18.75rem; /* 300px / 16 = 18.75rem */
-        padding: var(--spacing-medium); /* 20px / 16 = 1.25rem */
+        max-width: 18.75rem;
+        padding: var(--spacing-medium);
     }
 
     .card__title {
-        font-size: 1.125rem; /* 18px / 16 = 1.125rem */
+        font-size: 1.125rem;
     }
 
     .card__text {
-        font-size: 0.875rem; /* 14px / 16 = 0.875rem */
+        font-size: 0.875rem;
     }
 
     .footer {
-        font-size: 0.875rem; /* 14px / 16 = 0.875rem */
+        font-size: 0.875rem;
     }
 }
