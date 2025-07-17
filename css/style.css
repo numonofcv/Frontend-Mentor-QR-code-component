@@ -23,6 +23,14 @@ h1.title {
     margin-bottom: 20px;
 }
 
+/* Foydalanish qulayligi uchun qo'shildi: Faqat bitta asosiy landmark bo'lishini ta'minlash */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .card {
     max-width: 300px;
     width: 100%;
@@ -87,11 +95,17 @@ h1.title {
 
 .footer a {
     color: #007bff;
-    text-decoration: none;
+    text-decoration: none; /* Barcha footer havolalari uchun standart, .link--distinguishable uchun bekor qilinadi */
+}
+
+/* Foydalanish qulayligi uchun qo'shildi: Ajratib turuvchi havola */
+.footer a.link--distinguishable {
+    text-decoration: underline; /* Havolaning standart bo'yicha tagiga chizilishini ta'minlaydi */
 }
 
 .footer a:hover {
     color: #0056b3;
+    text-decoration: underline; /* Barcha havolalar sichqoncha ustiga olib kelganda tagiga chizilishini ta'minlaydi */
 }
 
 @media (max-width: 600px) {

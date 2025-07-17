@@ -2,28 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- qurilma ekraniga moslashadi -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | QR code component</title>
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <h1 class="title">QR code component</h1>
-  <div class="card">
-        <img src="./images/image-qr-code.png" alt="Frontend Mentor saytiga o‘tish uchun QR kodni skanerlash" class="card__image">
-    <div class="card__content">
-      <h2 class="card__title">Improve your front-end skills by building projects</h2>
-      <p class="card__text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+  <header> <!-- Sarlavha uchun <header> tegi qo'shildi -->
+    <h1 class="title">QR code komponenti</h1>
+  </header>
+
+  <main class="main-content"> <!-- Foydalanish qulayligi uchun <main> tegi qo'shildi -->
+    <div class="card">
+      <img src="./images/image-qr-code.png" alt="Frontend Mentor saytiga o‘tish uchun QR kod" class="card__image">
+      <div class="card__content">
+        <h2 class="card__title">Loyihalar qurish orqali front-end ko'nikmalaringizni oshiring</h2>
+        <p class="card__text">Frontend Mentorga tashrif buyurish va dasturlash ko'nikmalaringizni keyingi bosqichga olib chiqish uchun QR kodni skanerlang</p>
+      </div>
     </div>
-  </div>  
+  </main>
+
   <footer class="footer">
     <div class="attribution">
-      <p>Challenge by <a href="https://www.frontendmentor.io/home/my-challenges" target="_blank">Frontend Mentor</a>.</p>
-      <p>Coded by <a href="#">Numonofcv</a>.</p>
-      <p>Design by <a href="https://www.frontendmentor.io/profile/Numonofcv" target="_blank">Numonofcv</a>.</p>
+      <p>Challenge muallifi: <a href="https://www.frontendmentor.io/home/my-challenges" target="_blank">Frontend Mentor</a>.</p>
+      <!-- Matndagi havola uchun .link--distinguishable klassi qo'shildi -->
+      <p>Kod yozuvchisi: <a href="#" class="link--distinguishable">Numonofcv</a>.</p>
+      <p>Dizayn muallifi: <a href="https://www.frontendmentor.io/profile/Numonofcv" target="_blank">Numonofcv</a>.</p>
     </div>
   </footer>
 </body>
