@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- qurilma ekraniga moslashadi -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Qurilma ekraniga moslashish uchun viewport meta tegi -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
@@ -11,12 +11,15 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <header> <!-- Sarlavha uchun <header> tegi qo'shildi -->
+  <!-- Sahifa sarlavhasi uchun <header> tegi qo'shildi, bu "region" landmark ogohlantirishini hal qiladi -->
+  <header>
     <h1 class="title">QR code komponenti</h1>
   </header>
 
-  <main class="main-content"> <!-- Foydalanish qulayligi uchun <main> tegi qo'shildi -->
+  <!-- Sahifaning asosiy mazmuni uchun <main> tegi qo'shildi, bu "landmark-one-main" ogohlantirishini hal qiladi -->
+  <main class="main-content">
     <div class="card">
+      <!-- QR kod rasmi, aniq alt matni bilan -->
       <img src="./images/image-qr-code.png" alt="Frontend Mentor saytiga o‘tish uchun QR kod" class="card__image">
       <div class="card__content">
         <h2 class="card__title">Loyihalar qurish orqali front-end ko'nikmalaringizni oshiring</h2>
@@ -25,13 +28,15 @@
     </div>
   </main>
 
+  <!-- Sahifa futeri -->
   <footer class="footer">
     <div class="attribution">
+      <!-- Barcha havolalarga "link--distinguishable" klassi qo'shildi, bu havolalarni rangga tayanmasdan farqlashni ta'minlaydi -->
       <p>Challenge muallifi: <a href="https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H" target="_blank" class="link--distinguishable">Frontend Mentor</a>.</p>
-      <!-- Matndagi havola uchun .link--distinguishable klassi qo'shildi -->
       <p>Kod yozuvchisi: <a href="https://www.frontendmentor.io/profile/numonofcv" target="_blank" class="link--distinguishable">Numonofcv</a>.</p>
       <p>Dizayn muallifi: <a href="https://www.frontendmentor.io/profile/numonofcv" target="_blank" class="link--distinguishable">Numonofcv</a>.</p>
     </div>
   </footer>
 </body>
 </html>
+<!-- Sahifa tugadi, barcha elementlar joyida -->
